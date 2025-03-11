@@ -26,7 +26,7 @@
             font-size: 1.2rem;
             color: #a0a0a0;
         }
-        .cta-button, .create-channel-button {
+        .cta-button {
             background-color: #00ffcc;
             color: #0f0f23;
             padding: 15px 30px;
@@ -36,7 +36,7 @@
             cursor: pointer;
             margin-top: 20px;
         }
-        .cta-button:hover, .create-channel-button:hover {
+        .cta-button:hover {
             background-color: #00e6b8;
         }
         .features {
@@ -54,52 +54,57 @@
         .feature p {
             color: #a0a0a0;
         }
+        .official-account {
+            padding: 50px 20px;
+            background-color: #0f0f23;
+        }
+        .official-account h2 {
+            color: #00ffcc;
+            font-size: 2rem;
+        }
+        .official-account p {
+            color: #a0a0a0;
+        }
+        .verified-badge {
+            color: #00ffcc;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        .user-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 20px;
+            background-color: #1a1a40;
+        }
+        .user-buttons button {
+            background-color: #00ffcc;
+            color: #0f0f23;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .user-buttons button:hover {
+            background-color: #00e6b8;
+        }
         footer {
             padding: 20px;
             background-color: #0f0f23;
             color: #a0a0a0;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #1a1a40;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-        .modal input {
-            padding: 10px;
-            margin: 10px 0;
-            width: 100%;
-            border: 1px solid #00ffcc;
-            border-radius: 5px;
-            background-color: #0f0f23;
-            color: #ffffff;
-        }
-        .modal button {
-            background-color: #00ffcc;
-            color: #0f0f23;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .modal button:hover {
-            background-color: #00e6b8;
-        }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <h1>IntoSpace</h1>
         <p>Your Social Universe - Connect, Share, and Explore the Infinite</p>
         <button class="cta-button">Join IntoSpace</button>
-        <button class="create-channel-button" onclick="openCreateChannelModal()">Create Channel</button>
     </header>
+
+    <!-- Features Section -->
     <section class="features">
         <div class="feature">
             <h2>Connect</h2>
@@ -114,54 +119,23 @@
             <p>Discover new ideas, cultures, and trends from every corner of space.</p>
         </div>
     </section>
+
+    <!-- Official Account Section -->
+    <section class="official-account">
+        <h2>Meet <span class="verified-badge">✓</span>IntoSpace.Official</h2>
+        <p>The first and official account of IntoSpace. Verified as a staff member.</p>
+    </section>
+
+    <!-- User Buttons Section -->
+    <section class="user-buttons">
+        <button>Videos</button>
+        <button>Shorts</button>
+        <button>My Channel</button>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 IntoSpace. All rights reserved.</p>
     </footer>
-
-    <!-- Create Channel Modal -->
-    <div id="createChannelModal" class="modal">
-        <h2>Create Your Channel</h2>
-        <p>Please sign in with Google or enter your email:</p>
-        <input type="email" id="emailInput" placeholder="Enter your email" required>
-        <button onclick="verifyEmail()">Continue</button>
-    </div>
-
-    <!-- Verified Modal -->
-    <div id="verifiedModal" class="modal">
-        <h2>Account Verified!</h2>
-        <p>Your account has been verified. You can now create videos and shorts.</p>
-        <button onclick="createContent()">Create Video/Short</button>
-    </div>
-
-    <script>
-        // Function to open the Create Channel modal
-        function openCreateChannelModal() {
-            document.getElementById('createChannelModal').style.display = 'block';
-        }
-
-        // Function to simulate email verification
-        function verifyEmail() {
-            const email = document.getElementById('emailInput').value;
-            if (email) {
-                alert(`Verification email sent to ${email}. Check your inbox and click the "Verify Account" button.`);
-                document.getElementById('createChannelModal').style.display = 'none';
-                // Simulate email verification callback
-                setTimeout(showVerifiedModal, 2000);
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        }
-
-        // Function to show the Verified modal
-        function showVerifiedModal() {
-            document.getElementById('verifiedModal').style.display = 'block';
-        }
-
-        // Function to simulate content creation
-        function createContent() {
-            alert('Redirecting to content creation page...');
-            window.location.href = '/create-content'; // Replace with your actual content creation page URL
-        }
-    </script>
 </body>
 </html>
